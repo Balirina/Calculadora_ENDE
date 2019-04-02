@@ -1,0 +1,47 @@
+package interfazCLI.com;
+
+/**
+ * La clase con los tres metodos de la calculadora(division, potencia y raiz cuadrada)
+ * @author Balirina
+ *
+ */
+public class Operaciones456 {
+
+	/*private double m;
+	private double n;
+	*/
+	/**
+	 * Metodo dividir que recide dos parametros y devuelve el resultado de division
+	 * @param a, un valor double
+	 * @param b, otro valor double 
+	 * @return el resultado de division
+	 */
+	public double dividir(double a, double b)
+	{
+		double resp=a/b;
+		return resp;
+	}
+	
+	/**
+	 * Metodo para calcular la potencia
+	 * @param a introducido por el usuario
+	 * @param b introducido por el usuario
+	 * @return resultado 
+	 */
+	public double potencia(double a, double b)
+	{
+		double resp=Math.pow(a, b);
+		return resp;
+	}
+	
+	/**
+	 * Metodo para calculcar la raiz cuadrada de un numero
+	 * @param a introducido por el usuario
+	 * @return el resultado
+	 */
+	public double raiz(double a)
+	{
+		double resp=Math.sqrt(a);
+		return resp;
+	}
+}
