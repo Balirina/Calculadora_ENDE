@@ -44,7 +44,12 @@ public class calculo789 {
         else 
         	if (num == 0) 
             binario = "0";
-        return binario;
+        String binario2="";
+        for(int i=binario.length()-1;i>=0;i--)
+        {
+        	binario2+=binario.charAt(i);
+        }
+        return binario2;
 	}
 	
 	/**
@@ -54,8 +59,25 @@ public class calculo789 {
 	 */
 	public static double logaritmo(int num)
 	{
-		double resul=(Math.log10(num));
-		return resul;
+		double resul=0;
+		try {
+			resul = (Math.log10(num));
+		} catch (NumberFormatException e) {
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			return resul;
+		}
+		
 	}
 
+	public static void main(String[] args) {
+		
+		String resul=calculo789.binario(-20);
+		System.out.println(resul);
+		
+		int abs=absoluto(-5);
+		System.out.println(abs);
+	}
 }
