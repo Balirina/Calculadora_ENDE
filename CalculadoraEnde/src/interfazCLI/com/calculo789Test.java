@@ -2,7 +2,6 @@ package interfazCLI.com;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import javax.management.DescriptorKey;
 
 import org.junit.jupiter.api.Test;
 /**

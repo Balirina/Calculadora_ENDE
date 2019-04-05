@@ -6,9 +6,6 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,7 +42,6 @@ public class Interface extends JFrame{
 		panelTeclas=new JPanel();
 		panelTeclas.setLayout(new GridLayout(4,3));
 		panelTeclas.setBorder(new EmptyBorder(4,4,4,4));
-		JButton boton;
 		for(int i=9; i>=0; i--)
 		{
 			botonNum(""+i);
@@ -148,10 +144,17 @@ public class Interface extends JFrame{
 		{
 			String contenido=pantalla.getText();
 			String[] partes=contenido.split("+");
-			Operaciones op=new Operaciones();
-			resultado=op.suma(Integer.parseInt(partes[0]), (Integer.parseInt(partes[1])));
+			Operaciones op=new Operaciones((Integer.parseInt(partes[0])), (Integer.parseInt(partes[1])));
+			resultado=op.sumar();
 			pantalla.setText(String.valueOf(resultado));
 
+		}
+		if(operacion.equals("abs"))
+		{
+			String contenido=pantalla.getText();
+			calculo789 calc=new calculo789();
+			resultado=calc.absoluto(Integer.parseInt(contenido));
+			pantalla.setText(String.valueOf(resultado));
 		}
 		else
 		{

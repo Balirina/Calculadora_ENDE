@@ -13,9 +13,8 @@ public class Operaciones {
 	public Operaciones(int a2, int b2) {
 		
 		super();
-		this.a= a;
-		this.b= b;
-		this.resultado= resultado;
+		this.a= a2;
+		this.b= b2;
 	}
 
 

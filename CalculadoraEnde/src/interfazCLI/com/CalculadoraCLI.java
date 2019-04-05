@@ -49,8 +49,6 @@ private static void LanzarMenu() {
 		}
 	}
 	Operaciones op=new Operaciones(num1, num2);
-	Operaciones456 op2=new Operaciones456();
-	calculo789 op3=new calculo789();
 	switch(resp){
 	case 1:
 		System.out.println("La suma es: "+op.sumar());
@@ -62,22 +60,22 @@ private static void LanzarMenu() {
 		System.out.println("El resultado de la multiplicacion es : "+op.multiplicar());
 		break;
 	case 4:
-		System.out.println("El resultado de la division es : "+op2.dividir(num1, num2));
+		System.out.println("El resultado de la division es : "+Operaciones456.dividir(num1, num2));
 		break;
 	case 5:
-		System.out.println("El resultado de la potencia es: "+op2.potencia(num1, num2));
+		System.out.println("El resultado de la potencia es: "+Operaciones456.potencia(num1, num2));
 		break;
 	case 6:
-		System.out.println("La raiz cuadrada es : "+op2.raiz(num1));
+		System.out.println("La raiz cuadrada es : "+Operaciones456.raiz(num1));
 		break;
 	case 7:
-		System.out.println("El valor absoluto es : "+op3.absoluto(num1));
+		System.out.println("El valor absoluto es : "+calculo789.absoluto(num1));
 		break;
 	case 8:
-		System.out.println("El logaritmo es: "+op3.logaritmo(num1));
+		System.out.println("El logaritmo es: "+calculo789.logaritmo(num1));
 		break;
 	case 9:
-		System.out.println("El numero pasado a binario es: "+op3.binario(num1));
+		System.out.println("El numero pasado a binario es: "+calculo789.binario(num1));
 		break;
 	}
 	

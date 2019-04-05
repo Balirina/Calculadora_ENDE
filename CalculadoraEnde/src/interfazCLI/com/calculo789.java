@@ -6,13 +6,12 @@ package interfazCLI.com;
  */
 
 public class calculo789 {
-	
 	/**
 	 * @author Aitor
 	 * @param num Variable de numero entero
 	 * @return Devuelve un int con el valor absoluto del numero pasado como parametro
 	 */
-	public  int absoluto(int num)
+	public static int absoluto(int num)
 	{
 		int absoluto=Math.abs(num);
 		return absoluto;
@@ -23,7 +22,7 @@ public class calculo789 {
 	 * @param num La variable es un numero entero
 	 * @return Devuelve un String con el numero binario
 	 */
-	public   String binario(int num)
+	public  static String binario(int num)
 	{
 		String binario = "";
         if (num > 0) 
@@ -57,7 +56,7 @@ public class calculo789 {
 	 * @param num Variable que corresponde a un numero entero
 	 * @return Devuelve un double con el resultado de un logaritmo en base 10 de num
 	 */
-	public  double logaritmo(int num)
+	public static double logaritmo(int num)
 	{
 		double resul=0;
 		try {

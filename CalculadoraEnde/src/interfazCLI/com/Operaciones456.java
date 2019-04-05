@@ -16,7 +16,7 @@ public class Operaciones456 {
 	 * @param b, otro valor double 
 	 * @return el resultado de division
 	 */
-	public double dividir(double a, double b)
+	public static double dividir(double a, double b)
 	{
 		double resp=a/b;
 		return resp;
@@ -28,7 +28,7 @@ public class Operaciones456 {
 	 * @param b introducido por el usuario
 	 * @return resultado 
 	 */
-	public double potencia(double a, double b)
+	public static double potencia(double a, double b)
 	{
 		double resp=Math.pow(a, b);
 		return resp;
@@ -39,7 +39,7 @@ public class Operaciones456 {
 	 * @param a introducido por el usuario
 	 * @return el resultado
 	 */
-	public double raiz(double a)
+	public static double raiz(double a)
 	{
 		double resp=Math.sqrt(a);
 		return resp;
