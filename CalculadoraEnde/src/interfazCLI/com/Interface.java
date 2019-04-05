@@ -1,9 +1,11 @@
-package plus;
+package interfazCLI.com;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -78,14 +80,22 @@ public class Interface extends JFrame{
 	{
 		JButton btn=new JButton();
 		btn.setText(digito);
-		btn.addMouseListener(new MouseAdapter() {
+		btn.addActionListener(new ActionListener() {
 			
-			public void mouseReleases(MouseEvent ev)
-			{
-				JButton btn=(JButton)ev.getSource();
-				numeroPulsado(btn.getText());
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(pantalla.getText().equals("0") || nuevaOperacion)
+				{
+					pantalla.setText(digito);
+					nuevaOperacion=false;
+				}
+				else
+				{
+					String contenido=pantalla.getText();
+					pantalla.setText(contenido+digito);
+				}
+				
 			}
-			
 		});
 		panelTeclas.add(btn);
 	}
@@ -94,25 +104,22 @@ public class Interface extends JFrame{
 	{
 		JButton btn=new JButton(operacion);
 		btn.setForeground(Color.RED);
-		btn.addMouseListener(new MouseAdapter() {
+		btn.setText(operacion);
+		btn.addActionListener(new ActionListener() {
 			
-			public void mouseReleases(MouseEvent ev)
-			{
-				JButton btn=(JButton)ev.getSource();
-				numeroPulsado(btn.getText());
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String contenido=pantalla.getText();
+				pantalla.setText(contenido+operacion);
+				
 			}
-			
 		});
 		panelOperac.add(btn);
 	}
 	
 	private void numeroPulsado(String digito)
 	{
-		if(pantalla.getText().equals("0") || nuevaOperacion)
-		{
-			pantalla.setText(pantalla.getText()+digito);
-		}
-		nuevaOperacion=false;
+		
 
 	}
 	private void operacionPulsado(String tecla)
