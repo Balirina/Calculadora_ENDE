@@ -19,7 +19,6 @@ class Op456Test {
 	void testPotencia() 
 	{
 		assertEquals(16, calc.potencia(4, 2));
-		//gdfgrf
 	}
 	
 	@Test

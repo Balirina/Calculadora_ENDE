@@ -22,15 +22,67 @@ public class CalculadoraCLI {
 	 */
 private static void LanzarMenu() {
 	System.out.println("Bienvenido a la calculadora");
-	Sumar(); //debes borrarme
+	System.out.println("Introduce 1 si queres sumar");
+	System.out.println("Introduce 2 si queres restar");
+	System.out.println("Introduce 3 si queres multiplicar");
+	System.out.println("Introduce 4 si queres dividir");
+	System.out.println("Introduce 5 si queres calcular potencia");
+	System.out.println("Introduce 6 si queres calcular la raiz cuadrada");
+	System.out.println("Introduce 7 si queres calcular el valor absoluto");
+	System.out.println("Introduce 8 si queres calcular el logaritmo");
+	System.out.println("Introduce 9 si queres calcular el binario");
+	int resp=Consola.leeInt();
+	System.out.println("Introduce un numero");
+	int num1=Consola.leeInt();
+	int num2=0;
+	if(resp==1 || resp==2 || resp==3 || resp==4)
+	{
+		System.out.println("Introduce otro numero");
+		num2=Consola.leeInt();
+	}
+	else
+	{
+		if(resp==5)
+		{
+			System.out.println("Introduce la potencia");
+			num2=Consola.leeInt();
+		}
+	}
+	Operaciones op=new Operaciones();
+	Operaciones456 op2=new Operaciones456();
+	calculo789 op3=new calculo789();
+	switch(resp){
+	case 1:
+		System.out.println("La suma es: "+op.suma(num1, num2));
+		break;
+	case 2:
+		System.out.println("La resta es: "+op.resta(num1, num2));
+		break;
+	case 3:
+		System.out.println("El resultado de la multiplicacion es : "+op.multiplicacion(num1, num2));
+		break;
+	case 4:
+		System.out.println("El resultado de la division es : "+op2.dividir(num1, num2));
+		break;
+	case 5:
+		System.out.println("El resultado de la potencia es: "+op2.potencia(num1, num2));
+		break;
+	case 6:
+		System.out.println("La raiz cuadrada es : "+op2.raiz(num1));
+		break;
+	case 7:
+		System.out.println("El valor absoluto es : "+op3.absoluto(num1));
+		break;
+	case 8:
+		System.out.println("El logaritmo es: "+op3.logaritmo(num1));
+		break;
+	case 9:
+		System.out.println("El numero pasado a binario es: "+op3.binario(num1));
+		break;
+	}
+	
 }
 
-
-private static int Sumar() {
-	System.out.println("Yo sumo dos operadores");
-	return 0;
-
-}
 
 
 
