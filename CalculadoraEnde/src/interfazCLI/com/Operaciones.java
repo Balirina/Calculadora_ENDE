@@ -1,11 +1,25 @@
 package interfazCLI.com;
 
+
 public class Operaciones {
 	
 	
 	int a;
 	int b;
 	int resultado;
+	
+	
+	
+	public Operaciones(int a2, int b2) {
+		
+		super();
+		this.a= a;
+		this.b= b;
+		this.resultado= resultado;
+	}
+
+
+
 	/**
 	@Metodo que suma dos numeros
 	@param a
@@ -14,13 +28,14 @@ public class Operaciones {
 	@return resultado
 	
 	*/
-	public  int suma()
+	public  int sumar()
 	{
 		resultado= a+b;
 		
 		 return resultado;
 	}
 
+	
 	/**
 	 * Metodo que resta dos numeros
 	 * @param a
@@ -29,7 +44,7 @@ public class Operaciones {
 	 * @return resultado
 	 */
 	
-	public int  resta()
+	public int  restar()
 
 	{
 		resultado =a-b;
@@ -44,8 +59,8 @@ public class Operaciones {
 	 * @param b
 	 * @param resultado
 	 * @return resultado
-	 */
-	public int  multiplicacion()
+	*/
+	public int  multiplicar()
 	{
 		resultado=a*b;
 		
