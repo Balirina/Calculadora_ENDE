@@ -48,18 +48,18 @@ private static void LanzarMenu() {
 			num2=Consola.leeInt();
 		}
 	}
-	Operaciones op=new Operaciones();
+	Operaciones op=new Operaciones(num1, num2);
 	Operaciones456 op2=new Operaciones456();
 	calculo789 op3=new calculo789();
 	switch(resp){
 	case 1:
-		System.out.println("La suma es: "+op.suma(num1, num2));
+		System.out.println("La suma es: "+op.sumar());
 		break;
 	case 2:
-		System.out.println("La resta es: "+op.resta(num1, num2));
+		System.out.println("La resta es: "+op.restar());
 		break;
 	case 3:
-		System.out.println("El resultado de la multiplicacion es : "+op.multiplicacion(num1, num2));
+		System.out.println("El resultado de la multiplicacion es : "+op.multiplicar());
 		break;
 	case 4:
 		System.out.println("El resultado de la division es : "+op2.dividir(num1, num2));
