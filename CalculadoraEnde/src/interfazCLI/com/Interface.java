@@ -13,6 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * @author Balirina
+ *Clase que dibuja la interfaz de una calculadora
+ */
 public class Interface extends JFrame{
 
 	private JTextField pantalla;
@@ -21,6 +25,9 @@ public class Interface extends JFrame{
 	private String operacion;
 	private double resultado;
 
+	/**
+	 * Constructor que dibuja la pantalla y los botones de la calculadora
+	 */
 	public Interface()
 	{
 		setSize(260,300);
