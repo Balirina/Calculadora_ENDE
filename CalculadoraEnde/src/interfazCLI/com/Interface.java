@@ -77,6 +77,10 @@ public class Interface extends JFrame{
 		validate();
 		setVisible(true);
 	}
+	/**
+	 * Metodo para dibujar los botones con numeros en la pantalla
+	 * @param digito, el  valor de cada boton
+	 */
 	private void botonNum(String digito)
 	{
 		JButton btn=new JButton();
@@ -101,6 +105,10 @@ public class Interface extends JFrame{
 		panelTeclas.add(btn);
 	}
 
+	/**
+	 * Metodo bara dibujar los botones de las operaciones en la pantalla
+	 * @param operacion
+	 */
 	private void botonOp(String operacion)
 	{
 		JButton btn=new JButton(operacion);
@@ -121,6 +129,10 @@ public class Interface extends JFrame{
 	}
 
 
+	/**
+	 * Metodo para realizar las operaciones
+	 * @param tecla, la operacion tecleada
+	 */
 	private void operacionPulsado(String tecla)
 	{
 		if(tecla.equals("="))
@@ -145,6 +157,9 @@ public class Interface extends JFrame{
 		nuevaOperacion=true;
 	}
 
+	/**
+	 * Metodo para hacer los calculos de las operaciones
+	 */
 	private void calcularRes() 
 	{
 		if(operacion.equals("+"))
@@ -182,6 +197,10 @@ public class Interface extends JFrame{
 		operacion="";
 	}
 
+	/**
+	 * Metodo para instanciar la interfaz de la calculadora
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		new Interface();
 	}
