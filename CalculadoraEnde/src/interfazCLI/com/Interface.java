@@ -13,20 +13,23 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
+import org.hamcrest.core.SubstringMatcher;
+
 /**
  * @author Balirina
  *Clase que dibuja la interfaz de una calculadora
+ *con los metodos para que cada operacion funcione
  */
 public class Interface extends JFrame{
 
 	private JTextField pantalla;
 	private JPanel panelTeclas, panelOperac;
 	private boolean nuevaOperacion=true;
-	private String operacion;
-	private double resultado;
 
 	/**
-	 * Constructor que dibuja la pantalla y los botones de la calculadora
+	 * Constructor que dibuja la ventana de la calculadora,
+	 * la pantalla y los botones de la calculadora.
+	 * @author Balirina
 	 */
 	public Interface()
 	{
@@ -80,6 +83,7 @@ public class Interface extends JFrame{
 	/**
 	 * Metodo para dibujar los botones con numeros en la pantalla
 	 * @param digito, el  valor de cada boton
+	 * @author Balirina
 	 */
 	private void botonNum(String digito)
 	{
@@ -107,7 +111,8 @@ public class Interface extends JFrame{
 
 	/**
 	 * Metodo bara dibujar los botones de las operaciones en la pantalla
-	 * @param operacion
+	 * @param operacion, el simbolo de la operacion que recibe cada boton
+	 * @author Balirina
 	 */
 	private void botonOp(String operacion)
 	{
@@ -119,86 +124,100 @@ public class Interface extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String contenido=pantalla.getText();
-				pantalla.setText(contenido+operacion);
-				operacionPulsado(operacion);
-
+				if(operacion.equals("+") || operacion.equals("-") || operacion.equals("/") || operacion.equals("*")|| operacion.equals("^"))
+				{
+					pantalla.setText(contenido+operacion);
+				}
+				else
+				{
+					ejecutarOperacion(operacion);
+					nuevaOperacion=false;
+				}
 			}
 		});
 
 		panelOperac.add(btn);
 	}
 
-
 	/**
-	 * Metodo para realizar las operaciones
-	 * @param tecla, la operacion tecleada
+	 * Metodo que ejecuta las operaciones que se realizan con solo un valor 
+	 * y que llama al metodo operacion2Valores para operaciones que necesitan 2 valores para ser ejecutados
+	 * @param op, la operacion que recibe el metodo
+	 * @author Balirina
 	 */
-	private void operacionPulsado(String tecla)
+	private void ejecutarOperacion( String op)
 	{
-		if(tecla.equals("="))
-			calcularRes();
-		else
+		String contenido=pantalla.getText();
+		switch(op)
 		{
-			if (tecla.equals("CE"))
-			{
-				resultado=0;
+		case "abs":
+				pantalla.setText(String.valueOf(Absoluto_binario_log.absoluto(Integer.parseInt(contenido))));
+				break;
+		case "log":
+				pantalla.setText(String.valueOf(Absoluto_binario_log.logaritmo(Integer.parseInt(contenido))));
+				break;
+		case '\u221A'+"":
+				pantalla.setText(String.valueOf(Dividir_potencia_raiz.raiz(Double.parseDouble(contenido))));
+				break;
+		case "bin":
+				pantalla.setText(String.valueOf(Absoluto_binario_log.binario(Integer.parseInt(contenido))));
+				break;
+		case "=":
+				operacion2Valores();
+				break;
+		case "CE":
 				pantalla.setText("");
-				nuevaOperacion=true;
-			}
-			else
-			{
-				operacion=tecla;
-				if((resultado>0) && !nuevaOperacion)
-					calcularRes();
-				else
-					resultado=new Double(pantalla.getText());
-			}
+				break;
 		}
-		nuevaOperacion=true;
 	}
-
+	
 	/**
-	 * Metodo para hacer los calculos de las operaciones
+	 * Metodo que ejecuta las operaciones que necesitan 2 valores para ser ejecutados
+	 * @author Balirina
 	 */
-	private void calcularRes() 
+	private void operacion2Valores()
 	{
-		if(operacion.equals("+"))
+		String contenido=pantalla.getText();
+		String valor1="";
+		String valor2="";
+		String op="";
+		for(int i=0; i<contenido.length(); i++)
 		{
-			String contenido=pantalla.getText();
-			String[] partes=contenido.split("+");
-			Operaciones op=new Operaciones((Integer.parseInt(partes[0])), (Integer.parseInt(partes[1])));
-			resultado=op.sumar();
-			pantalla.setText(String.valueOf(resultado));
-
-		}
-		if(operacion.equals("abs"))
-		{
-			String contenido=pantalla.getText();
-			calculo789 calc=new calculo789();
-			resultado=calc.absoluto(Integer.parseInt(contenido));
-			pantalla.setText(String.valueOf(resultado));
-		}
-		else
-		{
-			if(operacion.equals("-"))
-				resultado-=new Double(pantalla.getText());
-			else
+			if(contenido.charAt(i)=='+' || contenido.charAt(i)=='-' || contenido.charAt(i)=='*' || contenido.charAt(i)=='/' || contenido.charAt(i)=='^')
 			{
-				if(operacion.equals("/"))
-					resultado/=new Double(pantalla.getText());
-				else
-				{
-					if(operacion.equals("*"));
-					resultado*=new Double(pantalla.getText());
-				}
+				op+=contenido.charAt(i);
+				valor2=contenido.substring(i+1, contenido.length());
+				break;
 			}
+			valor1+=contenido.charAt(i);
 		}
-		pantalla.setText(""+resultado);
-		operacion="";
+		switch(op) {
+		case "+":
+				pantalla.setText(String.valueOf(Sumar_restar_multiplicar.sumar(Double.parseDouble(valor1),Double.parseDouble(valor2))));
+				break;
+		case "-":
+				pantalla.setText(String.valueOf(Sumar_restar_multiplicar.restar(Double.parseDouble(valor1),Double.parseDouble(valor2))));
+				break;
+		case "/":
+			try {
+				pantalla.setText(String.valueOf(Dividir_potencia_raiz.dividir(Double.parseDouble(valor1),Double.parseDouble(valor2))));
+			} catch (NumberFormatException | Division0Exception e) {
+				pantalla.setText(e.getMessage());
+			}
+				break;
+		case "^":
+				pantalla.setText(String.valueOf(Dividir_potencia_raiz.potencia(Double.parseDouble(valor1),Double.parseDouble(valor2))));
+				break;
+		case "*":
+				pantalla.setText(String.valueOf(Sumar_restar_multiplicar.multiplicar(Double.parseDouble(valor1),Double.parseDouble(valor2))));
+				break;
+		}
 	}
-
+	
+	
 	/**
 	 * Metodo para instanciar la interfaz de la calculadora
+	 * @author Balirina
 	 * @param args
 	 */
 	public static void main(String[] args) {

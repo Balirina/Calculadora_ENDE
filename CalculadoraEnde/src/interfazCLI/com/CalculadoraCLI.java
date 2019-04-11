@@ -56,34 +56,37 @@ private static void LanzarMenu() {
 	 * @param resp que respresenta la operacion que quiere ejecutar el usuario
 	 */
 	private static void tratarCasosMenu(int resp) {
-		Operaciones op=new Operaciones(num1, num2);
 		switch(resp){
 		case 1:
-			System.out.println("La suma es: "+op.sumar());
+			System.out.println("La suma es: "+Sumar_restar_multiplicar.sumar(num1, num2));
 			break;
 		case 2:
-			System.out.println("La resta es: "+op.restar());
+			System.out.println("La resta es: "+Sumar_restar_multiplicar.restar(num1, num2));
 			break;
 		case 3:
-			System.out.println("El resultado de la multiplicacion es : "+op.multiplicar());
+			System.out.println("El resultado de la multiplicacion es : "+Sumar_restar_multiplicar.multiplicar(num1, num2));
 			break;
 		case 4:
-			System.out.println("El resultado de la division es : "+Operaciones456.dividir(num1, num2));
+			try {
+				System.out.println("El resultado de la division es : "+Dividir_potencia_raiz.dividir(num1, num2));
+			} catch (Division0Exception e) {
+				System.out.println("Division entre 0");
+			}
 			break;
 		case 5:
-			System.out.println("El resultado de la potencia es: "+Operaciones456.potencia(num1, num2));
+			System.out.println("El resultado de la potencia es: "+Dividir_potencia_raiz.potencia(num1, num2));
 			break;
 		case 6:
-			System.out.println("La raiz cuadrada es : "+Operaciones456.raiz(num1));
+			System.out.println("La raiz cuadrada es : "+Dividir_potencia_raiz.raiz(num1));
 			break;
 		case 7:
-			System.out.println("El valor absoluto es : "+calculo789.absoluto(num1));
+			System.out.println("El valor absoluto es : "+Absoluto_binario_log.absoluto(num1));
 			break;
 		case 8:
-			System.out.println("El logaritmo es: "+calculo789.logaritmo(num1));
+			System.out.println("El logaritmo es: "+Absoluto_binario_log.logaritmo(num1));
 			break;
 		case 9:
-			System.out.println("El numero pasado a binario es: "+calculo789.binario(num1));
+			System.out.println("El numero pasado a binario es: "+Absoluto_binario_log.binario(num1));
 			break;
 		}
 	}

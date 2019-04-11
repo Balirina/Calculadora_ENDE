@@ -5,19 +5,18 @@ package interfazCLI.com;
  * @author Balirina
  *
  */
-public class Operaciones456 {
+public class Dividir_potencia_raiz {
 
-	/*private double m;
-	private double n;
-	*/
 	/**
 	 * Metodo dividir que recide dos parametros y devuelve el resultado de division
 	 * @param a, un valor double
 	 * @param b, otro valor double 
 	 * @return el resultado de division
 	 */
-	public static double dividir(double a, double b)
+	public static double dividir(double a, double b) throws Division0Exception
 	{
+		if(b==0)
+			throw new Division0Exception("Division entre 0");
 		double resp=a/b;
 		return resp;
 	}

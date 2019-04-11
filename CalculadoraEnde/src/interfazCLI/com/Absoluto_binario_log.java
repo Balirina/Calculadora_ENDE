@@ -5,7 +5,7 @@ package interfazCLI.com;
  * @version1.0
  */
 
-public class calculo789 {
+public class Absoluto_binario_log {
 	/**
 	 * @author Aitor
 	 * @param num Variable de numero entero

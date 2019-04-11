@@ -10,18 +10,19 @@ import org.junit.jupiter.api.Test;
  * Cada metodo tiene dos casos de prueba
  *
  */
-class Op456Test {
+class Dividir_potencia_raizTest {
 
-	private Operaciones456 calc;
-	
-	
 	/**
 	 * Primera prueba del metodo dividir que da fallo
 	 */
 	@Test
 	void testDivision() 
 	{
-		assertEquals(5, calc.dividir(10, 5));
+		try {
+			assertEquals(5, Dividir_potencia_raiz.dividir(10, 5));
+		} catch (Division0Exception e) {
+			System.out.println("Division entre 0");
+		}
 	}
 	/**
 	 * Segunda prueba del metodo dividir que no da fallo
@@ -29,7 +30,11 @@ class Op456Test {
 	@Test
 	void TestDivision2()
 	{
-		assertEquals(2, calc.dividir(10,5));
+		try {
+			assertEquals(2, Dividir_potencia_raiz.dividir(10,5));
+		} catch (Division0Exception e) {
+			System.out.println("Division entre 0");
+		}
 	}
 	
 	/**
@@ -38,25 +43,23 @@ class Op456Test {
 	@Test
 	void testPotencia() 
 	{
-		assertEquals(16, calc.potencia(4, 2));
+		assertEquals(16, Dividir_potencia_raiz.potencia(4, 2));
 	}
+
 	/**
-	 * Segunda prueba del metodo calcular potencia que 
-	 * comprueba que la calculadora sea instanciada
+	 * Segunda prueba del metodo calcular potencia
 	 */
-	@Test
-	void TestPotencia2()
+	void testPotencia2() 
 	{
-		assertNotNull(calc);
+		assertEquals(16, Dividir_potencia_raiz.potencia(3, 2));
 	}
-	
 	/**
 	 * Primera prueba del metodo calcular la raiz cuadrada
 	 */
 	@Test
 	void testRaiz() 
 	{
-		assertEquals(4, calc.raiz(16));
+		assertEquals(4, Dividir_potencia_raiz.raiz(16));
 	}
 	/**
 	 * Segunda prueba del metodo raiz que da fallo
@@ -64,7 +67,7 @@ class Op456Test {
 	@Test
 	void TestRaiz2()
 	{
-		assertEquals(3, calc.raiz(16));
+		assertEquals(3, Dividir_potencia_raiz.raiz(16));
 	}
 	
 

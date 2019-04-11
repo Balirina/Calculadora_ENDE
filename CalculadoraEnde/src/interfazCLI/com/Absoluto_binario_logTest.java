@@ -10,47 +10,47 @@ import org.junit.jupiter.api.Test;
  * @version 1.0
  *
  */
-class calculo789Test {
+class Absoluto_binario_logTest {
 
 	
 	@Test
 	void testAbsoluto() {
 		
-		int abs=calculo789.absoluto(-5);
+		int abs=Absoluto_binario_log.absoluto(-5);
 		assertEquals(abs,5);
 	}
 
 	@Test
 	void testAbsoluto2() {
 		
-		int abs=calculo789.absoluto(-4/3);
+		int abs=Absoluto_binario_log.absoluto(-4/3);
 		assertNotEquals(abs,1.33);
 	}
 	@Test
 	void testAbsoluto3() {
 		
-		int abs=calculo789.absoluto(3);
+		int abs=Absoluto_binario_log.absoluto(3);
 		assertEquals(abs,-3);
 	}
 	
 	@Test
 	void testBinario() 
 	{
-		String resul=calculo789.binario(10);
+		String resul=Absoluto_binario_log.binario(10);
 		assertEquals(resul,"1010");
 	}
 
 	@Test
 	void testBinario2() 
 	{
-		String resul=calculo789.binario(10);
+		String resul=Absoluto_binario_log.binario(10);
 		assertEquals(resul,"1011");
 	}
 	
 	@Test
 	void testBinario3() 
 	{
-		String resul=calculo789.binario(-20);
+		String resul=Absoluto_binario_log.binario(-20);
 		assertEquals(resul,"10100");
 	}
 	
@@ -58,21 +58,21 @@ class calculo789Test {
 	@Test
 	void testLogaritmo() 
 	{
-		double log=calculo789.logaritmo(10);
+		double log=Absoluto_binario_log.logaritmo(10);
 		assertEquals(log,1);
 	}
 	
 	@Test
 	void testLogaritmo2() 
 	{
-		double log=calculo789.logaritmo(10);
+		double log=Absoluto_binario_log.logaritmo(10);
 		assertNotEquals(log,1);
 	}
 	
 	@Test
 	void testLogaritmo3() 
 	{
-		double log=calculo789.logaritmo(0);
+		double log=Absoluto_binario_log.logaritmo(0);
 		assertEquals(log,0);
 	}
 
