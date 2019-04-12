@@ -131,7 +131,7 @@ public class Interface extends JFrame{
 				else
 				{
 					ejecutarOperacion(operacion);
-					nuevaOperacion=false;
+					nuevaOperacion=true;
 				}
 			}
 		});
